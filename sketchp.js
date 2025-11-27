@@ -1,5 +1,5 @@
 function redirectUser() {
-    window.location.href = "https://rotteck.de/aktuelles/neues-aus-dem-schulleben/"
+    window.location.href = "index.html"
 }
 
 
