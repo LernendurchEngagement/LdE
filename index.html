@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Lernen durch Engagement</title>
+</head>
+<body> 
+    <nav class="navbar">
+      <div class="logo">
+        <img id="triggerImage" src="logo.png" alt="Logo">
+    </div>
+        <ul class="nav-links" id="navLinks">
+          
+
+              <li><a href="#team">Über uns</a></li>
+
+
+
+              <li><a href="#idee1">Die Idee</a></li>
+
+
+          <!-- Unsere Projekte -->
+          <li class="dropdown">
+            <a>Unsere Projekte</a>
+            <ul class="dropdown-menu">
+                <li><a onclick="redirectUser('mountainbike')">Mountainbike</a>      <!-- >>> geändert <<< -->
+                <li><a onclick="redirectUser('sprachkurse')">Sprachkurse</a>        <!-- >>> geändert <<< -->
+                <li><a onclick="redirectUser('schwarzwald')">Schwarzwald</a>        <!-- >>> geändert <<< -->
+                <li><a onclick="redirectUser('entwicklung')">Entwicklung</a>        <!-- >>> geändert <<< -->
+                <li><a onclick="redirectUser('naturpark')">Naturpark Schwarzwald</a><!-- >>> geändert <<< -->
+                <li><a onclick="redirectUser('erinnerung')">Erinnerung</a>          <!-- >>> geändert <<< -->
+                <li><a onclick="redirectUser('3t')">3T</a>                          <!-- >>> geändert <<< -->
+                <li><a onclick="redirectUser('hk')">HK</a>                          <!-- >>> geändert <<< -->
+                <li><a onclick="redirectUser('kleidung')">(Sport-)Kleidung</a>      <!-- >>> geändert <<< -->
+                <li><a onclick="redirectUser('nsdoku')">NS-Dokuzentrum</a>          <!-- >>> geändert <<< -->
+            </ul>
+        </li>
+        
+          <!-- Podcasts -->
+
+        
+
+
+
+
+        <div class="menu-toggle" id="menuToggle">☰</div>
+    </nav>
+
+    <main>
+      <img src="rotteck2.png">
+      <hr class="dicke-linie">
+        <section id="team">
+          <h1>Über uns</h1>
+          <p></p>
+        </section>
+        <section id="idee1">
+          <h1>Die Idee</h1>
+        </section>
+    </main>
+    <script src="sketch.js"></script>
+</body>
+</html>
+
