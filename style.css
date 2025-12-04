@@ -1,6 +1,6 @@
 h1{
-    color: rgb(29, 11, 131);
-    text-align: center;
+    color: rgb(0, 0, 0);
+    text-align: left;
     font-family: Arial;
     font-size: 500%;
 }
@@ -13,8 +13,8 @@ h2 {
 }
 
 p{
-    text-align: center;
-    font-size: 500px;
+    text-align: left;
+    font-size: 35px;
 }
 
 img{
@@ -215,6 +215,7 @@ body {
 
   }
       
+
 
 
 
