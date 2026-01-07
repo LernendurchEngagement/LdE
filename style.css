@@ -1,0 +1,431 @@
+/*CSS*/
+body { 
+  margin: 0; 
+  font-family: "Segoe UI", sans-serif; 
+  scroll-behavior: smooth;
+}
+html {
+  scroll-padding-top: 80px; /* Höhe der Navbar */
+  scroll-behavior: smooth;
+}
+
+section {
+   padding: 80px 20px;
+   min-height: 50vh;
+}
+
+h4 {
+  font-size: 150%;
+  line-height: 1.5;
+  margin-left: 15px;
+  font-weight: normal;
+}
+
+main {
+  padding-top: 60px;
+}
+
+h1 {
+  color: rgb(0, 0, 0);
+  text-align: left;
+  font-family: Arial;
+  font-size: 500%;
+  margin-left: 15px;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.spacing {
+  height: 100px;
+}
+
+h2 {
+  color: rgb(0, 0, 0);
+  text-align: left;
+  font-family: Arial;
+  font-size: 150%;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+}
+
+img {
+  width: 100%;
+  height: 50%;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.dicke-linie {
+  border:none;
+  height:65px;
+  background-color:#222222;
+  width: 100%;
+  margin: 0px 0;
+}
+
+/* -------------------------
+  NAVBAR
+-------------------------- */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 60px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* -------------------------
+  NAV LINKS
+-------------------------- */
+
+.navbar {
+  padding-left: 20px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin-right: 40px; 
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  background: #333;
+  border-radius: 6px;
+}
+.navbar.scrolled {
+  background-color: rgba(0,0,0,0.8);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* -------------------------
+  DROPDOWN
+-------------------------- */
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+
+  /* FIX: verhindert Überlaufen nach rechts */
+  right: 0;
+  left: auto;
+
+  background: #222222;
+  list-style: none;
+  padding: 10px 40px;
+
+  width: 220px;
+  max-width: calc(100vw - 20px);
+
+  border-radius: 4px;
+  z-index: 9999;
+
+  white-space: normal !important;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+  display: block !important;
+}
+
+.dropdown-menu li a {
+  color: white;
+  padding: 10px 20px;
+  display: block;
+
+  white-space: normal !important;
+  word-break: break-word;
+
+  line-height: 1.3;
+}
+
+.dropdown-menu li a:hover {
+  background: #333333;
+}
+
+
+/* -------------------------
+  MOBILE
+-------------------------- */
+
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #222;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 220px;
+      padding: 20px 0;
+  }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .menu-toggle {
+      display: block;
+  }
+
+  .dropdown-menu {
+      position: relative;
+      top: 0;
+      background: #111;
+  }
+}
+
+@media (max-width: 768px) {
+    .idee-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Lampe img {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 120px;
+    }
+}
+
+/* ------------------------- 
+Button
+ -------------------------- */
+  /* --- Kontakt Button Hover & Click --- */ 
+  #kontaktBtn { 
+    font-size: 22px;
+    cursor: pointer;
+    transition: text-decoration 0.2s;
+  } 
+
+  #kontaktBtn:hover { 
+    text-decoration: underline;
+  }
+
+  #emojiRotateButton {
+    position: fixed;
+    bottom: 20px; right: 20px; 
+    font-size: 55px; background: none; 
+    border: none; 
+    cursor: pointer; 
+    transition: transform 0.2s ease; 
+    z-index: 2000;
+  } 
+
+  #emojiRotateButton:hover { 
+    transform: scale(1.3); 
+  } 
+
+  .hidden { 
+    display: none; 
+  }
+  .rotating {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+  #kontaktWrapper { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 12px; 
+    margin-top: 40px;
+  } 
+
+  .footerText { 
+    font-size: 22px; 
+    color: black; 
+  } 
+
+  .divider { 
+    font-size: 22px; 
+    color: black; 
+    user-select: none; 
+  } 
+
+  #kontaktWrapper { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 14px; 
+    margin-top: 40px; 
+  } 
+
+  .footerLink { 
+    font-size: 22px; 
+    cursor: pointer; 
+    transition: color 0.2s, text-decoration 0.2s; 
+  } 
+
+  .footerLink:hover {
+    text-decoration: underline; 
+    color: #333; 
+  } 
+
+  .divider { 
+    font-size: 22px; 
+    user-select: none; 
+  }
+
+
+/* -------------------------
+  AUDIO PLAYER
+-------------------------- */
+
+.audioBox {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.audioImage {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.player {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.controls button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+.playPauseBtn {
+    font-size: 22px;
+}
+
+.progress {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.time {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* -------------------------
+  Logos
+-------------------------- */
+
+.idee-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.idee-header h1 {
+    font-size: 5rem;
+    margin: 0;
+}
+
+.Lampe img {
+    width: 150px;
+    height: auto;
+    margin-left: 0px;
+}
+
+.naturparkHeader {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+#baumLogo {
+    width: 160px;
+    height: 160px;
+}
+#kleidungWrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+/* p5 Canvas */
+#kleidungLogo canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Adidas-Logo relativ zum Shirt */
+#adidasLogo {
+  position: absolute;
+
+  /* AUS SHIRT-FORM ABGELEITET */
+  top: 42px;        /* Schulterhöhe */
+  left: 92px;       /* rechte Schulter, nicht Rand */
+
+  width: 20px;
+  height: auto;
+
+  pointer-events: none;
+}
+
+
+/* -------------------------
+  Unsichtbarer / klickbarer Text
+-------------------------- */
+h4 span#moreText,
+h4 span.clickable { 
+  font-weight: normal;
+  font-size: 1em;
+  color: inherit;
+  cursor: default;  
+  text-decoration: none; 
+}

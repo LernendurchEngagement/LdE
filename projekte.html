@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lernen durch Engagement/Projekte</title>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <img id="triggerImage" src="langverschmiert.png" alt="Logo">
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">Unsere Projekte</a>
+                <ul class="dropdown-menu">
+                    <li><a href="projekte.html#mountainbike" onclick="redirectUser('mountainbike')">Mountainbike</a></li>
+                    <li><a href="projekte.html#sprachkurse" onclick="redirectUser('sprachkurse')">Sprachkurse</a></li>
+                    <li><a href="projekte.html#schwarzwald" onclick="redirectUser('schwarzwald')">Schwarzwald</a></li>
+                    <li><a href="projekte.html#entwicklung" onclick="redirectUser('entwicklung')">Entwicklung</a></li>
+                    <li><a href="projekte.html#naturpark" onclick="redirectUser('naturpark')">Naturpark Schwarzwald</a></li>
+                    <li><a href="projekte.html#erinnerung" onclick="redirectUser('erinnerung')">Erinnerung</a></li>
+                    <li><a href="projekte.html#3t" onclick="redirectUser('3t')">3T</a></li>
+                    <li><a href="projekte.html#hk" onclick="redirectUser('hk')">HK</a></li>
+                    <li><a href="projekte.html#kleidung" onclick="redirectUser('kleidung')">Spendenaktion Sportkleidung</a></li>
+                    <li><a href="projekte.html#nsdoku" onclick="redirectUser('nsdoku')">NS-Dokuzentrum</a></li>
+                    <li><a href="projekte.html#webside" onclick="redirectUser('webside')">Diese Website</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+    </nav>
+
+<main>
+
+<section id="mountainbike">
+    <div class="idee-header">
+        <h1>Mountainbike</h1>
+         <div id="mountainbikeLogo" class="logoCanvas"></div>
+    </div>
+
+    <h4>Bei unserem Projekt „Lernen durch Engagement“ haben wir: Moritz, Anel und Nicolas, beim Mountainbike Verein Freiburg mitgeholfen. Auf einem Trail haben ein paar wichtige Schilder gefehlt, und wir sollten sie bauen und später aufhängen. 
+        Beim ersten Termin haben wir die Schilder zusammen vorbereitet und alles ausgemessen und zusammengeschraubt. Beim zweiten Termin sind wir dann raus auf den Trail und haben sie dort befestigt. 
+        Die Leute vom Verein haben sich richtig gefreut, dass wir das machen, und man hat gemerkt, dass es denen wirklich geholfen hat. 
+        Uns selbst hat es auch voll Spaß gemacht, weil wir draußen waren und etwas gemacht haben, das man am Ende wirklich sieht. 
+        Insgesamt war es eine coole Erfahrung, die wir sofort wieder machen würden.</h4>
+
+    <div class="audioBox">
+        <img src="PHOTO-2026-01-06-14-27-10.jpg" class="audioImage" alt="Audio">
+        <audio id="audioPlayer1" src="podcast moritz annel nicolas f2.mp3"></audio>
+        <div class="player">
+            <div class="controls">
+                <button class="backwardBtn">⏪ 10s</button>
+                <button class="playPauseBtn">▶</button>
+                <button class="restartBtn">⏮ Neu</button>
+                <button class="forwardBtn">⏩ 10s</button>
+            </div>
+            <input type="range" class="progress" min="0" value="0">
+            <div class="time">
+                <span class="currentTime">0:00</span> /
+                <span class="duration">2:22</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="sprachkurse">
+    <div class="idee-header">
+        <h1>Sprachkurse</h1>
+        <div id="sprachkurseLogo" class="logoCanvas"></div>
+    </div>
+</section>
+
+<section id="schwarzwald">
+    <div class="idee-header">
+        <h1>Schwarzwald</h1>
+      <div id="schwarzwaldLogo" class="logoCanvas"></div>
+    </div>
+</section>
+
+<section id="entwicklung">
+    <div class="idee-header">
+        <h1>Entwicklung</h1>
+        <div id="entwicklungLogo" class="logoCanvas"></div>
+    </div>
+</section>
+
+<section id="naturpark">
+    <div class="naturparkHeader">
+        <h1>Naturpark Schwarzwald</h1>
+        <div id="baumLogo"></div>
+    </div>
+</section>
+
+<section id="erinnerung">
+    <div class="idee-header">
+        <h1>Erinnerung</h1>
+        <div id="erinnerungLogo" class="logoCanvas"></div>
+    </div>
+</section>
+
+<section id="3t">
+    <div class="idee-header">
+        <h1>3T</h1>
+        <div id="3tLogo" class="logoCanvas"></div>
+    </div>
+</section>
+
+<section id="hk">
+    <div class="idee-header">
+        <h1>HK</h1>
+        <div id="hkLogo" class="logoCanvas"></div>
+    </div>
+</section>
+
+<section id="kleidung">
+    <div class="idee-header">
+            <h1>Spendenaktion Sportkleidung</h1>
+                <div id="kleidungWrapper">
+                     <div id="kleidungLogo"></div>
+                    <img id="adidasLogo" src="Adidas.png" alt="Adidas Logo">
+                </div>
+
+    </div>
+
+        <h4>Als das Projekt „Lernen durch Engagement“ vorgestellt wurde, hatten wir (Jona Batteux und Noah Ernst) die Idee, dass wir dieses Projekt mit unserer Leidenschaft Fußball verbinden. 
+            Da wir beide Trainer und Spieler des Fußballvereins VfR Merzhausen sind, organisierten wir eine Spendenaktion von Sportkleidung. 
+            Wir spenden die gesammelte Kleidung an den Kleiderladen in Freiburg, bei dem Menschen vorbeikommen können, die nicht genügend Geld haben sich anderweitig Kleidung zu kaufen. Mit unserem Projekt hatten wir verschiedene Ziele. 
+            Zum einen wollten wir ein nachhaltiges Projekt haben, das umweltfreundlich ist. Zudem ist uns aufgefallen, dass in Kleiderläden für ärmere Menschen nur saisonale Straßenkleidung vorhanden ist und meist keine Sportkleidung. 
+            Deshalb war es unser Ziel, in dem Kleiderladen, an den wir spenden, auch ein kleines Angebot von Sportkleidung zu ermöglichen.</h4>
+
+    <div class="audioBox">
+        <img src="20251210_213341.jpg" class="audioImage" alt="Audio">
+        <audio id="audioPlayer9" src="podcast noah jona.mp3"></audio>
+        <div class="player">
+            <div class="controls">
+                <button class="backwardBtn">⏪ 10s</button>
+                <button class="playPauseBtn">▶</button>
+                <button class="restartBtn">⏮ Neu</button>
+                <button class="forwardBtn">⏩ 10s</button>
+            </div>
+            <input type="range" class="progress" min="0" value="0">
+            <div class="time">
+                <span class="currentTime">0:00</span> /
+                <span class="duration">3:52</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="nsdoku">
+    <div class="idee-header">
+        <h1>NS-Dokuzentrum</h1>
+        <div id="nsdokuLogo" class="logoCanvas"></div>
+    </div>
+</section>
+
+<section id="webside">
+  <div class="idee-header">
+    <h1>Diese Website</h1>
+    <div id="websideLogo" class="logoCanvas"></div>
+  </div>
+  
+    <h3>__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ </h3>
+    <h4>
+        In unserer Gruppe haben wir die Zeit, die die anderen Gruppen mit ihren jeweiligen Organisationen verbracht haben, dazu genutzt, diese Webside zu coden. Erstellt wurde sie mit dem Programm VS Code und beinhaltet verschiedene Programmiersprachen: HTML, JavaScript und CSS. 
+        <span class="clickable">Wir hatten eine grandiose Arbeitsmoral.</span>
+        <span id="moreText">(Abgesehen von den Stunden, die wir mit GeoGuessor, MakeItMeme oder Scribble.io verbracht haben)</span>
+        Alle Texte auf dieser Webside, die nicht direkt ein Projekt betreffen, sind von uns. Wir haben zu viert an dieser Webside gearbeitet.
+    </h4>
+    
+</section>
+
+</main>
+
+<div id="kontaktWrapper">
+  <span id="datenschutz" class="footerLink">Datenschutz</span>
+  <span class="divider">|</span>
+  <span id="kontaktBtn">Kontakt</span>
+  <span class="divider">|</span>
+  <span id="impressum" class="footerLink">Impressum</span>
+</div>
+
+<button id="emojiRotateButton" class="hidden">🔁</button>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+<script src="sketch.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+<script src="baum.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+<script src="logos.js"></script>
+</body>
+</html>
