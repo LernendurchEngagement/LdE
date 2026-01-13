@@ -10,6 +10,13 @@ if (menuToggle) {
         navLinks.classList.toggle("active");
     });
 }
+document.querySelectorAll(".dropdown > .dropbtn").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    const dropdown = btn.parentElement;
+    dropdown.classList.toggle("open");
+    e.preventDefault();
+  });
+});
 
 /* ---------------------------------
     Scrollen zu Projektankern
@@ -22,6 +29,13 @@ function redirectUser(anchor) {
         window.location.href = "projekte.html#" + anchor;
     }
 }
+document.querySelectorAll(".dropdown > .dropbtn").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    const dropdown = btn.parentElement;
+    dropdown.classList.toggle("open");
+    e.preventDefault();
+  });
+});
 
 /* ---------------------------------
     ROTIERBARE ELEMENTE sammeln
@@ -117,6 +131,9 @@ if (navbar) {
 /* ---------------------------------
     AUDIO PLAYER – GLOBAL INITIALISIERUNG
 ---------------------------------- */
+let currentlyPlayingAudio = null;
+let currentlyPlayingButton = null;
+
 document.querySelectorAll(".audioBox").forEach(box => {
     
     const audio = box.querySelector("audio");
@@ -135,19 +152,54 @@ document.querySelectorAll(".audioBox").forEach(box => {
     }
 
     playPauseBtn.addEventListener("click", () => {
+        // FALL 1: Dieses Audio ist pausiert → soll starten
         if (audio.paused) {
+
+            // anderes Audio läuft → pausieren
+            if (currentlyPlayingAudio && currentlyPlayingAudio !== audio) {
+                currentlyPlayingAudio.pause();
+
+                if (currentlyPlayingButton) {
+                    currentlyPlayingButton.textContent = "▶";
+                }
+            }
+
             audio.play();
             playPauseBtn.textContent = "⏸";
+
+            currentlyPlayingAudio = audio;
+            currentlyPlayingButton = playPauseBtn;
+
+        // FALL 2: Dieses Audio läuft → pausieren
         } else {
             audio.pause();
             playPauseBtn.textContent = "▶";
+
+            if (currentlyPlayingAudio === audio) {
+                currentlyPlayingAudio = null;
+                currentlyPlayingButton = null;
+            }
         }
     });
 
+
+
+    audio.addEventListener("ended", () => {
+    playPauseBtn.textContent = "▶";
+
+    if (currentlyPlayingAudio === audio) {
+        currentlyPlayingAudio = null;
+        currentlyPlayingButton = null;
+        }
+    });
+
+
     restartBtn.addEventListener("click", () => {
-        audio.currentTime = 0;
-        audio.play();
-        playPauseBtn.textContent = "⏸";
+    audio.currentTime = 0;
+
+    if (!audio.paused) {
+        audio.play(); // nur weiterlaufen lassen
+        }   
     });
 
     forwardBtn.addEventListener("click", () => {
@@ -158,9 +210,9 @@ document.querySelectorAll(".audioBox").forEach(box => {
         audio.currentTime -= 10;
     });
 
-    audio.addEventListener("loadedmetadata", () => {
-        progress.max = audio.duration;
-        durationLabel.textContent = formatTime(audio.duration);
+    audio.addEventListener("canplaythrough", () => {
+    progress.max = audio.duration;
+    durationLabel.textContent = formatTime(audio.duration);
     });
 
     audio.addEventListener("timeupdate", () => {
@@ -171,6 +223,17 @@ document.querySelectorAll(".audioBox").forEach(box => {
     progress.addEventListener("input", () => {
         audio.currentTime = progress.value;
     });
+
+    audio.addEventListener("play", () => {
+    playPauseBtn.textContent = "⏸";
+    });
+
+    audio.addEventListener("pause", () => {
+    if (!audio.ended) {
+        playPauseBtn.textContent = "▶";
+        }
+    });
+
 });
 
 /*---------------

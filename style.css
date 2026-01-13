@@ -7,6 +7,8 @@ body {
 html {
   scroll-padding-top: 80px;
   scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
 section {
@@ -146,7 +148,8 @@ img {
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
+  left: auto;
   background: #222222;
   list-style: none;
   padding: 10px 10px;
@@ -157,6 +160,7 @@ img {
   width: 220px;
   white-space: normal !important;
 }
+
 
 .dropdown:hover .dropdown-menu,
 .dropdown-menu:hover {
@@ -177,42 +181,87 @@ img {
 }
 
 /* -------------------------
-  MOBILE
+  MOBILE NAVIGATION BEHAVIOR
 -------------------------- */
+@media (max-width: 768px) { /* Hamburger-Button sichtbar */ 
+  .menu-toggle {
+     display: block; 
+     font-size: 30px; 
+     cursor: pointer; 
+     margin-right: 10px;
+    } /* Nav-Links mobil: vertikal, über gesamte Breite, zentriert */ 
+    .nav-links { 
+      display: none; /* standardmäßig versteckt */ 
+      flex-direction: column; 
+      position: absolute; 
+      top: 60px; 
+      /* direkt unter Navbar */ 
+      left: 0; 
+      width: 100%; /* volle Breite */ 
+      background: #000; 
+      list-style: none; 
+      padding: 0;
+      margin: 0; 
+      text-align: center; 
+      z-index: 999; 
+    } /* sichtbar bei Hamburger-Click */ 
+    .nav-links.active { 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+    } 
+    .nav-links li { 
+      width: 100%; 
+      padding: 10px 0; 
+      position: relative; /* für Dropdown */ 
+    } 
+    .nav-links a { 
+      display: block; 
+      width: 100%; 
+      text-align: center; 
+      color: white; 
+      text-decoration: none; 
+      font-weight: bold; 
+      padding: 10px 0; 
+    } 
+    .nav-links a:hover { 
+      background: #333; 
+    }
 
-.menu-toggle {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
+  /* Dropdown im Flow: kein fixed/absolute, bleibt im Dokumentfluss */
+  .dropdown-menu {
+    display: none;             /* standardmäßig versteckt */
+    flex-direction: column;
+    width: 100%;               /* volle Breite */
+    background: #222;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;    /* wichtig für Scrollbar */
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: flex;             /* sichtbar bei Click */
+  }
+
+  .dropdown-menu li a {
+    width: 100%;
+    padding: 10px 16px;        /* Abstand von rechts, Scrollbar sichtbar */
+    color: white;
+    text-align: center;
+    box-sizing: border-box;    /* verhindert Text unter Scrollbar */
+  }
+
+  .dropdown-menu li a:hover {
+    background: #333;
+  }
 }
 
-/* 🔧 EINZIGER FIX */
-@media (max-width: 768px) {
 
+/* Desktop: Hamburger-Button unsichtbar */
+@media (min-width: 769px) {
   .menu-toggle {
-    display: block;
-    margin-right: 12px; /* ← FIX: Hamburger nicht mehr in der Wand */
-  }
-
-  .nav-links {
     display: none;
-    flex-direction: column;
-    background: #222;
-    position: absolute;
-    top: 60px;
-    right: 12px; /* ← FIX: Dropdown nicht über den Rand */
-    width: 220px;
-    padding: 20px 0;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .dropdown-menu {
-    position: relative;
-    top: 0;
-    background: #111;
   }
 }
 

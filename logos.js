@@ -62,67 +62,10 @@ new p5((p) => {
     };
 });
 
-
-
-new p5(p => {
-  p.setup = () => {
-    const c = p.createCanvas(150,150);
-    c.parent("schwarzwaldLogo");
-    p.background(255);
-
-    p.stroke(20,80,40);
-    p.strokeWeight(2);
-    p.fill(34,139,34);
-
-    drawTree(40);
-    drawTree(75);
-    drawTree(110);
-  };
-
-  function drawTree(x){
-    p.triangle(x,40,x-20,90,x+20,90);
-    p.triangle(x,55,x-25,110,x+25,110);
-  }
-});
-
-
-// Entwicklung Logo – modernes Zahnrad mit Farbakzenten
-new p5((p) => {
-    p.setup = function() {
-        const enCanvas = p.createCanvas(150, 150);
-        enCanvas.parent("entwicklungLogo");
-        p.background(255);
-
-        drawGear(p, 75, 75, 40, 8);
-    };
-
-    function drawGear(p, x, y, radius, teeth) {
-        p.push();
-        p.translate(x, y);
-        p.stroke(0);
-        p.strokeWeight(2);
-        p.fill(200, 200, 200);
-
-        p.beginShape();
-        for (let i = 0; i < teeth*2; i++) {
-            let angle = i * p.TWO_PI / (teeth*2);
-            let r = i % 2 === 0 ? radius : radius*0.7;
-            p.vertex(r * p.cos(angle), r * p.sin(angle));
-        }
-        p.endShape(p.CLOSE);
-
-        // Zentrum farbig
-        p.fill(100, 150, 255);
-        p.ellipse(0, 0, radius*0.6, radius*0.6);
-        p.pop();
-    }
-});
-
-
 new p5(p => {
   p.setup = () => {
     const c = p.createCanvas(150, 150);
-    c.parent("erinnerungLogo");
+    c.parent("InklusionLogo");
     p.background(255);
 
     const cx = 75;
@@ -225,78 +168,6 @@ new p5(p => {
     p.line(midTop.x, midTop.y, midBottom.x, midBottom.y);
   };
 });
-
-
-
-
-
-
-
-// ----------------- 3T (rekursive Struktur f1) -----------------
-new p5((p) => {
-    p.setup = function() {
-        let tttCanvas = p.createCanvas(150, 150);
-        tttCanvas.parent("3tLogo");
-        p.background(255);
-        p.stroke(200, 100, 100);
-        p.noFill();
-        p.translate(75, 120); // Startpunkt unten Mitte
-        drawF1(60); // Initiale Länge
-
-        function drawF1(len){
-            p.strokeWeight(1);
-            if(len < 1) {
-                p.point(0,0);
-                return;
-            }
-            p.push();
-            drawF1(len*0.5);
-            p.pop();
-            p.push();
-            p.translate(len,0);
-            p.rotate(-p.PI/2);
-            drawF1(len*0.5);
-            p.pop(); 
-            p.push();
-            p.translate(0,-len*0.5);
-            drawF1(len*0.5);
-            p.pop(); 
-        }
-    };
-});
-
-// ----------------- HK (rekursive Struktur f5, sichtbar) -----------------
-new p5((p) => {
-    p.setup = function() {
-        let hkCanvas = p.createCanvas(150, 150);
-        hkCanvas.parent("hkLogo");
-        p.background(255);
-        p.stroke(100, 150, 200);
-        p.noFill();
-        p.translate(75, 100); // Startpunkt leicht nach unten
-
-        let angle2 = 2*p.PI/5;
-        let c = 0.5; // etwas größer für bessere Sichtbarkeit
-
-        drawF5(80); // größere Initial-Länge
-
-        function drawF5(len){
-            p.strokeWeight(2);
-            if(len < 3) { // minimal sichtbare Länge
-                p.point(0,0);
-                return;
-            }
-            for (let i=0; i<5; i++)  {
-                p.push();
-                p.rotate(angle2*i);
-                p.translate(len*c/2,0);
-                drawF5(len*c);
-                p.pop();
-            }
-        }
-    };
-});
-
 
 new p5(p => {
   p.setup = () => {
@@ -406,7 +277,7 @@ new p5(p => {
 new p5(p => {
   p.setup = () => {
     const c = p.createCanvas(150,150);
-    c.parent("websideLogo");
+    c.parent("websiteLogo");
     p.background(255);
 
     // Bildschirm
@@ -430,4 +301,208 @@ new p5(p => {
   };
 });
 
+new p5(p => {
+  p.setup = () => {
+    const c = p.createCanvas(150,150);
+    c.parent("capoaLogo");
+    p.background(255);
+
+    // Dach
+    p.stroke(80);
+    p.strokeWeight(3);
+    p.line(30,60,75,30);
+    p.line(75,30,120,60);
+
+    // Menschen (farbig)
+    const people = [
+      {x:55, col:[255,180,180]},
+      {x:75, col:[180,220,255]},
+      {x:95, col:[180,255,200]}
+    ];
+
+    people.forEach(pers => {
+      p.noStroke();
+      p.fill(pers.col);
+      p.ellipse(pers.x,80,18,18);      // Kopf
+      p.rect(pers.x-7,90,14,30,6);     // Körper
+      p.rect(pers.x-14,98,10,6,3);     // linker Arm
+      p.rect(pers.x+4,98,10,6,3);      // rechter Arm
+    });
+
+    // Herz
+    p.textSize(22);
+    p.textAlign(p.CENTER,p.CENTER);
+    p.text("❤️",75,52);
+  };
+});
+
+
+new p5(p => {
+  p.setup = () => {
+    const c = p.createCanvas(150,150);
+    c.parent("demokratieLogo");
+    p.background(255);
+
+    // =================
+    // MENSCHEN
+    // =================
+    p.noStroke();
+
+    // Linke Person (Sprecher)
+    p.fill(200,220,255);
+    p.ellipse(50,80,18,18);      // Kopf
+    p.rect(43,90,14,35,6);       // Körper
+
+    // Rechte Person (Zuhörer)
+    p.fill(255,220,180);
+    p.ellipse(100,80,18,18);
+    p.rect(93,90,14,35,6);
+
+    // =================
+    // SPRECHBLASE
+    // =================
+    p.stroke(100);
+    p.strokeWeight(2);
+    p.fill(245);
+    const bubbleX = 85;
+    const bubbleY = 45;
+    const bubbleW = 90;
+    const bubbleH = 40;
+    p.ellipse(bubbleX, bubbleY, bubbleW, bubbleH);
+
+    // =================
+    // SCHNABEL (Korrekt: tangential an der Blase, zeigt auf Sprecher)
+    // =================
+    const snBaseY = bubbleY + bubbleH/2;  // Basis: untere Kante der Blase
+    const snBaseLeftX = bubbleX - 15;     // links
+    const snBaseRightX = bubbleX - 5;     // rechts
+    const snTipX = 63;                    // zeigt auf linke Person
+    const snTipY = 72;                    // oberhalb des Kopfes, berührt Person nicht
+
+    p.noStroke();
+    p.fill(245);
+    p.triangle(
+      snBaseLeftX, snBaseY,
+      snBaseRightX, snBaseY,
+      snTipX, snTipY
+    );
+
+    p.stroke(100);
+    p.strokeWeight(2);
+    p.noFill();
+    p.triangle(
+      snBaseLeftX, snBaseY,
+      snBaseRightX, snBaseY,
+      snTipX, snTipY
+    );
+
+    // =================
+    // BLATT IN DER BLASE
+    // =================
+    p.fill(255);
+    p.stroke(120);
+    p.rect(70,32,30,26,3);
+
+    // Linien auf dem Blatt
+    p.line(73,38,97,38);
+    p.line(73,43,97,43);
+    p.line(73,48,97,48);
+  };
+});
+
+
+
+
+
+new p5(p => {
+  p.setup = () => {
+    const c = p.createCanvas(150,150);
+    c.parent("bahnhofsmissionLogo");
+    p.background(255);
+
+    // Boden / kleiner Weg
+    p.noStroke();
+    p.fill(230,230,230);
+    p.rect(0,120,150,30);
+
+    // Person links
+    p.fill(100,180,255);
+    p.ellipse(55,65,20,20); // Kopf
+    p.rect(48,75,14,35,6); // Körper
+
+    // Person rechts
+    p.fill(255,150,150);
+    p.ellipse(95,65,20,20); 
+    p.rect(88,75,14,35,6);
+
+    // Verbindung (Hand-in-Hand)
+    p.stroke(120);
+    p.strokeWeight(4);
+    p.line(62,95,88,95);
+
+    // Herz über den Köpfen
+    p.noStroke();
+    p.fill(255,0,50);
+    p.textSize(20);
+    p.textAlign(p.CENTER,p.CENTER);
+    p.text("❤️",75,45);
+  };
+});
+
+
+new p5(p => {
+  p.setup = () => {
+    const c = p.createCanvas(150,150);
+    c.parent("arbLogo");
+    p.background(255);
+
+    // Erwachsener
+    p.noStroke();
+    p.fill(180,220,255);
+    p.ellipse(55,55,20,20);
+    p.rect(47,65,16,45,6);
+
+    // Kind
+    p.fill(255,220,180);
+    p.ellipse(90,70,14,14);
+    p.rect(84,78,12,32,6);
+
+    // Stern
+    p.textSize(20);
+    p.textAlign(p.CENTER,p.CENTER);
+    p.text("⭐",75,30);
+  };
+});
+
+
+new p5(p => {
+  p.setup = () => {
+    const c = p.createCanvas(150,150);
+    c.parent("strandcafeLogo");
+    p.background(255);
+
+    // Tisch
+    p.stroke(120,90,60);
+    p.strokeWeight(3);
+    p.line(30,95,120,95);
+
+    // Menschen
+    p.noStroke();
+    p.fill(255,210,180);
+    p.ellipse(55,65,18,18);
+    p.rect(48,75,14,30,6);
+
+    p.fill(180,220,255);
+    p.ellipse(95,65,18,18);
+    p.rect(88,75,14,30,6);
+
+    // Kaffee
+    p.textSize(22);
+    p.textAlign(p.CENTER,p.CENTER);
+    p.text("☕",75,55);
+
+    // Herz
+    p.text("❤️",75,30);
+  };
+});
 
